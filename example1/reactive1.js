@@ -129,6 +129,7 @@ function getCoord(e) {
   var hairX = Math.cos(mouthAngle) * 6;
   var hairS = 1.2;
 
+  /*
   TweenMax.to(eyeL, 1, { x: -eyeLX, y: -eyeLY, ease: Expo.easeOut });
   TweenMax.to(eyeR, 1, { x: -eyeRX, y: -eyeRY, ease: Expo.easeOut });
   TweenMax.to(nose, 1, {
@@ -183,6 +184,7 @@ function getCoord(e) {
     transformOrigin: "center bottom",
     ease: Expo.easeOut
   });
+  */
 
   document.body.removeChild(div);
 }
@@ -193,61 +195,61 @@ function onEmailInput(e) {
   curEmailIndex = value.length;
 
   // very crude email validation for now to trigger effects
-  if (curEmailIndex > 0) {
-    if (mouthStatus == "small") {
-      mouthStatus = "medium";
-      TweenMax.to([mouthBG, mouthOutline, mouthMaskPath], 1, {
-        morphSVG: mouthMediumBG,
-        shapeIndex: 8,
-        ease: Expo.easeOut
-      });
-      TweenMax.to(tooth, 1, { x: 0, y: 0, ease: Expo.easeOut });
-      TweenMax.to(tongue, 1, { x: 0, y: 1, ease: Expo.easeOut });
-      TweenMax.to([eyeL, eyeR], 1, {
-        scaleX: 0.85,
-        scaleY: 0.85,
-        ease: Expo.easeOut
-      });
-    }
-    if (value.includes("@")) {
-      mouthStatus = "large";
-      TweenMax.to([mouthBG, mouthOutline, mouthMaskPath], 1, {
-        morphSVG: mouthLargeBG,
-        ease: Expo.easeOut
-      });
-      TweenMax.to(tooth, 1, { x: 3, y: -2, ease: Expo.easeOut });
-      TweenMax.to(tongue, 1, { y: 2, ease: Expo.easeOut });
-      TweenMax.to([eyeL, eyeR], 1, {
-        scaleX: 0.65,
-        scaleY: 0.65,
-        ease: Expo.easeOut,
-        transformOrigin: "center center"
-      });
-    } else {
-      mouthStatus = "medium";
-      TweenMax.to([mouthBG, mouthOutline, mouthMaskPath], 1, {
-        morphSVG: mouthMediumBG,
-        ease: Expo.easeOut
-      });
-      TweenMax.to(tooth, 1, { x: 0, y: 0, ease: Expo.easeOut });
-      TweenMax.to(tongue, 1, { x: 0, y: 1, ease: Expo.easeOut });
-      TweenMax.to([eyeL, eyeR], 1, {
-        scaleX: 0.85,
-        scaleY: 0.85,
-        ease: Expo.easeOut
-      });
-    }
-  } else {
-    mouthStatus = "small";
-    TweenMax.to([mouthBG, mouthOutline, mouthMaskPath], 1, {
-      morphSVG: mouthSmallBG,
-      shapeIndex: 9,
-      ease: Expo.easeOut
-    });
-    TweenMax.to(tooth, 1, { x: 0, y: 0, ease: Expo.easeOut });
-    TweenMax.to(tongue, 1, { y: 0, ease: Expo.easeOut });
-    TweenMax.to([eyeL, eyeR], 1, { scaleX: 1, scaleY: 1, ease: Expo.easeOut });
-  }
+  // if (curEmailIndex > 0) {
+  //   if (mouthStatus == "small") {
+  //     mouthStatus = "medium";
+  //     TweenMax.to([mouthBG, mouthOutline, mouthMaskPath], 1, {
+  //       morphSVG: mouthMediumBG,
+  //       shapeIndex: 8,
+  //       ease: Expo.easeOut
+  //     });
+  //     TweenMax.to(tooth, 1, { x: 0, y: 0, ease: Expo.easeOut });
+  //     TweenMax.to(tongue, 1, { x: 0, y: 1, ease: Expo.easeOut });
+  //     TweenMax.to([eyeL, eyeR], 1, {
+  //       scaleX: 0.85,
+  //       scaleY: 0.85,
+  //       ease: Expo.easeOut
+  //     });
+  //   }
+  //   if (value.includes("@")) {
+  //     mouthStatus = "large";
+  //     TweenMax.to([mouthBG, mouthOutline, mouthMaskPath], 1, {
+  //       morphSVG: mouthLargeBG,
+  //       ease: Expo.easeOut
+  //     });
+  //     TweenMax.to(tooth, 1, { x: 3, y: -2, ease: Expo.easeOut });
+  //     TweenMax.to(tongue, 1, { y: 2, ease: Expo.easeOut });
+  //     TweenMax.to([eyeL, eyeR], 1, {
+  //       scaleX: 0.65,
+  //       scaleY: 0.65,
+  //       ease: Expo.easeOut,
+  //       transformOrigin: "center center"
+  //     });
+  //   } else {
+  //     mouthStatus = "medium";
+  //     TweenMax.to([mouthBG, mouthOutline, mouthMaskPath], 1, {
+  //       morphSVG: mouthMediumBG,
+  //       ease: Expo.easeOut
+  //     });
+  //     TweenMax.to(tooth, 1, { x: 0, y: 0, ease: Expo.easeOut });
+  //     TweenMax.to(tongue, 1, { x: 0, y: 1, ease: Expo.easeOut });
+  //     TweenMax.to([eyeL, eyeR], 1, {
+  //       scaleX: 0.85,
+  //       scaleY: 0.85,
+  //       ease: Expo.easeOut
+  //     });
+  //   }
+  // } else {
+  //   mouthStatus = "small";
+  //   TweenMax.to([mouthBG, mouthOutline, mouthMaskPath], 1, {
+  //     morphSVG: mouthSmallBG,
+  //     shapeIndex: 9,
+  //     ease: Expo.easeOut
+  //   });
+  //   TweenMax.to(tooth, 1, { x: 0, y: 0, ease: Expo.easeOut });
+  //   TweenMax.to(tongue, 1, { y: 0, ease: Expo.easeOut });
+  //   TweenMax.to([eyeL, eyeR], 1, { scaleX: 1, scaleY: 1, ease: Expo.easeOut });
+  // }
 }
 
 function onEmailFocus(e) {
@@ -271,41 +273,41 @@ function onPasswordBlur(e) {
 }
 
 function coverEyes() {
-  TweenMax.to(armL, 0.45, { x: -93, y: 2, rotation: 0, ease: Quad.easeOut });
-  TweenMax.to(armR, 0.45, {
-    x: -93,
-    y: 2,
-    rotation: 0,
-    ease: Quad.easeOut,
-    delay: 0.1
-  });
+  // TweenMax.to(armL, 0.45, { x: -93, y: 2, rotation: 0, ease: Quad.easeOut });
+  // TweenMax.to(armR, 0.45, {
+  //   x: -93,
+  //   y: 2,
+  //   rotation: 0,
+  //   ease: Quad.easeOut,
+  //   delay: 0.1
+  // });
 }
 
 function uncoverEyes() {
-  TweenMax.to(armL, 1.35, { y: 220, ease: Quad.easeOut });
-  TweenMax.to(armL, 1.35, { rotation: 105, ease: Quad.easeOut, delay: 0.1 });
-  TweenMax.to(armR, 1.35, { y: 220, ease: Quad.easeOut });
-  TweenMax.to(armR, 1.35, { rotation: -105, ease: Quad.easeOut, delay: 0.1 });
+  // TweenMax.to(armL, 1.35, { y: 220, ease: Quad.easeOut });
+  // TweenMax.to(armL, 1.35, { rotation: 105, ease: Quad.easeOut, delay: 0.1 });
+  // TweenMax.to(armR, 1.35, { y: 220, ease: Quad.easeOut });
+  // TweenMax.to(armR, 1.35, { rotation: -105, ease: Quad.easeOut, delay: 0.1 });
 }
 
 function resetFace() {
-  TweenMax.to([eyeL, eyeR], 1, { x: 0, y: 0, ease: Expo.easeOut });
-  TweenMax.to(nose, 1, {
-    x: 0,
-    y: 0,
-    scaleX: 1,
-    scaleY: 1,
-    ease: Expo.easeOut
-  });
-  TweenMax.to(mouth, 1, { x: 0, y: 0, rotation: 0, ease: Expo.easeOut });
-  TweenMax.to(chin, 1, { x: 0, y: 0, scaleY: 1, ease: Expo.easeOut });
-  TweenMax.to([face, eyebrow], 1, { x: 0, y: 0, skewX: 0, ease: Expo.easeOut });
-  TweenMax.to([outerEarL, outerEarR, earHairL, earHairR, hair], 1, {
-    x: 0,
-    y: 0,
-    scaleY: 1,
-    ease: Expo.easeOut
-  });
+  // TweenMax.to([eyeL, eyeR], 1, { x: 0, y: 0, ease: Expo.easeOut });
+  // TweenMax.to(nose, 1, {
+  //   x: 0,
+  //   y: 0,
+  //   scaleX: 1,
+  //   scaleY: 1,
+  //   ease: Expo.easeOut
+  // });
+  // TweenMax.to(mouth, 1, { x: 0, y: 0, rotation: 0, ease: Expo.easeOut });
+  // TweenMax.to(chin, 1, { x: 0, y: 0, scaleY: 1, ease: Expo.easeOut });
+  // TweenMax.to([face, eyebrow], 1, { x: 0, y: 0, skewX: 0, ease: Expo.easeOut });
+  // TweenMax.to([outerEarL, outerEarR, earHairL, earHairR, hair], 1, {
+  //   x: 0,
+  //   y: 0,
+  //   scaleY: 1,
+  //   ease: Expo.easeOut
+  // });
 }
 
 function getAngle(x1, y1, x2, y2) {
@@ -344,15 +346,15 @@ email.addEventListener("blur", onEmailBlur);
 email.addEventListener("input", onEmailInput);
 password.addEventListener("focus", onPasswordFocus);
 password.addEventListener("blur", onPasswordBlur);
-TweenMax.set(armL, {
-  x: -93,
-  y: 220,
-  rotation: 105,
-  transformOrigin: "top left"
-});
-TweenMax.set(armR, {
-  x: -93,
-  y: 220,
-  rotation: -105,
-  transformOrigin: "top right"
-});
+// TweenMax.set(armL, {
+//   x: -93,
+//   y: 220,
+//   rotation: 105,
+//   transformOrigin: "top left"
+// });
+// TweenMax.set(armR, {
+//   x: -93,
+//   y: 220,
+//   rotation: -105,
+//   transformOrigin: "top right"
+// });
